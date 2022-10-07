@@ -9,26 +9,46 @@ import pl.polsl.lab.asser.moustafa.view.View;
 
 /**
  * Main class that instantiates a model object and a view object
+ * it catches the entered by user numeral and passes it to the model object
+ * it catches the processed numeral from the model obj and passes it back to the view
+ * 
  * @author asser.elfeki
  */
 public class Controller {
     
+    /** the converted numeral is saved here*/
     private String convertedNum;
+    
+    /**\
+     * 
+     * @param processedNum 
+     */
     public void setConvertedNum(String processedNum){
         
     }
+    
+    /**
+     * 
+     * @return 
+     */
     public String getConvertedNum(){
         
     }
     
+    /**
+     * main method of the app. 
+     * 
+     * @param args 
+     */
     public static void main(String[] args){
         View view = new View();
         //pass the user input to validator
         // validator passes it to according converter
         // converter will convert and pass back the output 
-        Model model = new Model();
+        Model model = new Model(view.read());
         
-//        System.out.println("here");
+        
+
         
         
         /*
