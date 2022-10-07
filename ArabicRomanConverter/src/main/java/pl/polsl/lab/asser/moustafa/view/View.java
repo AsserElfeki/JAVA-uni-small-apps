@@ -16,6 +16,9 @@ public class View {
     
     private Scanner scanner;
     
+    /**
+     * default constructor. It initiates the Scanner object and calls the promptUser func.
+     */
     public View(){
        scanner = new Scanner(System.in);
        promptUser();

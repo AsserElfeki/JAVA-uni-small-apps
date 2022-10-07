@@ -4,42 +4,55 @@
  */
 package pl.polsl.lab.asser.moustafa.model;
 
+import java.util.regex.*;
+import static pl.polsl.lab.asser.moustafa.model.RomanNumeralGenerator.*;
+
 /**
  * handles the data and the methods used to process it
  * @author asser.elfeki
  */
 public class Model {
     
-    /** the input from the user is set here*/
+    /** the input from the user is set here (in case user inputted ROMAN number)*/
     private String inputValue;
     
-    /**if the input is in Arabic notation, it is saved here*/
+    /** the input from the user is set here (in case user inputted Arabic number)*/
     private int inputNumeric;
     
-    /** the converted numeral is saved here*/
-    private String convertedNumeral; 
+    /** the converted numeral (FINAL OUTPUT) (in both notations) is saved here*/
+    private String convertedNumeral ; 
     
-    private boolean isArabic = true;
+    /** true if the entered input is in a correct number in either notation*/
+    boolean willBeConverted = false; 
     
-    
+    /**
+     * Constructor for the class. Saves the input value and calls the processing func.
+     * @param input represents the input entered by the user
+     */
     public Model (String input){
-        this.inputValue = input;
+        inputValue = input;
         processInput();
     }
     
-    
+    /**
+     * calls the isNumeric function and then calls the according validation function.
+     */
     public void processInput(){
+
         if (isNumeric()){
             inputNumeric = Integer.parseInt(inputValue);
+            System.out.println("Your number is in Arabic notation");
             validateArabicNotation();
         }
-        else 
+        else {
+            System.out.println("Your number is in Roman notation");
             validateRomanNotation();
+        }
     }
+    
     /**
-     * 
-     * @param input
-     * @return 
+     * checks if the input is numeric or not 
+     * @return true if Numeric and false if not
      */
     public boolean isNumeric(){
         if (inputValue == null || inputValue == "") {
@@ -56,13 +69,16 @@ public class Model {
     
     /**
      * Checks if the entered Arabic numeral is in the range between 1 and 3999
-     * @param arabicNumeral represents the entered numeral in Arabic notation
      */
     public void validateArabicNotation(){
-        if (inputNumeric < 1 || inputNumeric > 3999)
-            System.out.println("number out of range");
+        if (inputNumeric < 1 || inputNumeric > 3999){
+            System.out.println("entered Arabic number is out of range");
+            inputNumeric = 0; 
+            processInput();
+        }
         else {
-            System.out.println("ok good");
+            willBeConverted = true;
+            convertToRoman();
         }
     }
     
@@ -71,28 +87,40 @@ public class Model {
      * @param RomanNumeral represents the entered numeral in Roman notation
      */
     public void validateRomanNotation(){
-        System.out.println("reached Roman Validator");
+        //System.out.println("reached Roman Validator");
+        boolean match = inputValue.matches("^(I[VX]|VI{0,3}|I{1,3})|((X[LC]|"
+                + "LX{0,3}|X{1,3})(I[VX]|V?I{0,3}))|"
+                + "((C[DM]|DC{0,3}|C{1,3})(X[LC]|L?X{0,3})(I[VX]|V?I{0,3}))|"
+                + "(M+(C[DM]|D?C{0,3})(X[LC]|L?X{0,3})(I[VX]|V?I{0,3}))$");
+        
+        if (match){
+            convertToArabic();
+            willBeConverted = true;
+
+        }
+        else {
+            System.out.println("bad RN");
+        }
     }
     
-    public void saveEnteredValue (){
-        
-    //save it accordingly 
-    }
     
     /**
      * 
      * @param Str 
      */
-    public void convertToArabic(String Str) {
-        
+    public void convertToArabic() {
+        System.out.println("reached convert to arabic, entered RN: " + inputValue);
+        ArabicNumberGenerator ArGen = new ArabicNumberGenerator();
+        convertedNumeral =  Integer.toString(ArGen.generate(inputValue)) ;
     }
     
     /**
      * 
-     * @param num 
+     * 
      */
-    public void convertToRoman (int num){
-        
+    public void convertToRoman (){
+        RomanNumeralGenerator RnGen = new RomanNumeralGenerator();
+        convertedNumeral = RnGen.generate(inputNumeric);
     }
     
     /**
@@ -104,16 +132,11 @@ public class Model {
     }
     
     
+    public boolean inputCanBeProcessed (){
+        return willBeConverted;
+    }
     
-    
-    /*
-    method to check 
-    method to convert 
-    getters 
-    setters to pass the input 
-    */
 }
 
 
 
-// data and methods 

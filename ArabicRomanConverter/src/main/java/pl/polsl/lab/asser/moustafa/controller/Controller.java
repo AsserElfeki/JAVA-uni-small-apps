@@ -16,25 +16,6 @@ import pl.polsl.lab.asser.moustafa.view.View;
  */
 public class Controller {
     
-    /** the converted numeral is saved here*/
-    private String convertedNum;
-    
-    /**\
-     * 
-     * @param processedNum 
-     */
-    public void setConvertedNum(String processedNum){
-        
-    }
-    
-    /**
-     * 
-     * @return 
-     */
-    public String getConvertedNum(){
-        
-    }
-    
     /**
      * main method of the app. 
      * 
@@ -42,26 +23,19 @@ public class Controller {
      */
     public static void main(String[] args){
         View view = new View();
-        //pass the user input to validator
-        // validator passes it to according converter
-        // converter will convert and pass back the output 
+        
         Model model = new Model(view.read());
         
+//        while (!model.inputCanBeProcessed()){
+//            model.processInput();
+//        }
+        
+       
+        view.outputConvertedNumber(model.getOutput());
         
 
         
         
-        /*
-        TODO: 
-        make view and model objects 
-        use the view method which reads input 
-        get this input 
-        pass it to the model 
-        use model method that verifies the input
-        then process the input 
-        pass the processed input back 
-        the controller passes the processed input to the view (output)
-        the view outputs it 
-        */
+        
     }
 }
