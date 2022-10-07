@@ -12,15 +12,22 @@ import java.util.Scanner;
  */
 public class View {
     
-    private int enteredArabic; 
-    private String enteredRoman;
+    private Scanner scanner;
     
-    
-    public static void read(String[] args) {
+    public View(){
+       scanner = new Scanner(System.in);
+       promptUser();
+    }
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter number ");
-        String login = scanner.next();
-        System.out.println("Hello " + login);
+    public void promptUser (){
+        System.out.println("Enter a number then press Enter");
+    }
+    
+    public String read() {
+        return scanner.next();
+    }
+    
+    public void outputConvertedNumber(String convertedNum){
+        System.out.println("the converted number is: " + convertedNum);
     }
 }

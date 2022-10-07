@@ -11,9 +11,13 @@ package pl.polsl.lab.asser.moustafa.model;
 public class Model {
     
     
-    
+    private String inputNum; 
     private int convertedToArabic;
     private String convertedToRoman; 
+    
+    public void validate(String input){
+        
+    }
     
     public void saveEnteredValue (){
         //check if digits or char. 
@@ -36,6 +40,14 @@ public class Model {
     public String getRomanNum(){
         return this.convertedToRoman;
     }
+    
+    
+    /*
+    method to check 
+    method to convert 
+    getters 
+    setters to pass the input 
+    */
 }
 
 
