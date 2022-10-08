@@ -6,10 +6,11 @@ package pl.polsl.lab.asser.moustafa.model;
 
 /**
  * Class for Arabic to Roman numerals conversion
- * 
  * @author asser.elfeki
+ * @version 1.1
  */
 public class RomanNumeralGenerator {
+    
     //blank at the beginning so the index of the first RN is 1 not 0
     /** array of strings representing the "THOUSANDS" --> blank , 1000, 2000, 3000 */
     private static final String[] RN_M = {"", "M", "MM", "MMM"};
@@ -24,9 +25,9 @@ public class RomanNumeralGenerator {
     private static final String[] RN_I = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
 
     /**
-     * 
-     * @param number
-     * @return 
+     * A function that generates a roman Number based on a given integer
+     * @param number is the Arabic number entered by user, after being validated
+     * @return a string representing the converted number
      */
     public String generate(int number) {
         return new StringBuilder()

@@ -11,6 +11,7 @@ import java.util.Scanner;
  * It prompts the user to enter a numeral (in Arabic or Roman notations) and converts it and displays the numeral in the other notation
  * 
  * @author asser.elfeki
+ * @version 1.1
  */
 public class View {
     

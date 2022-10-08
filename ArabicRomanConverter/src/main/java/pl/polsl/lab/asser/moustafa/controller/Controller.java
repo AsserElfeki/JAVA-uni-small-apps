@@ -11,15 +11,15 @@ import pl.polsl.lab.asser.moustafa.view.View;
  * Main class that instantiates a model object and a view object
  * it catches the entered by user numeral and passes it to the model object
  * it catches the processed numeral from the model obj and passes it back to the view
- * 
  * @author asser.elfeki
+ * @version 1.1
  */
 public class Controller {
     
     /**
      * main method of the app. 
      * 
-     * @param args 
+     * @param args not used
      */
     public static void main(String[] args){
         View view = new View();

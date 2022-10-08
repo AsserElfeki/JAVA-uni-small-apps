@@ -10,6 +10,7 @@ import static pl.polsl.lab.asser.moustafa.model.RomanNumeralGenerator.*;
 /**
  * handles the data and the methods used to process it
  * @author asser.elfeki
+ * @version 1.1
  */
 public class Model {
     
@@ -84,7 +85,6 @@ public class Model {
     
     /**
      * Checks if the entered Roman numeral is in the range between I and MMMCMXCIX
-     * @param RomanNumeral represents the entered numeral in Roman notation
      */
     public void validateRomanNotation(){
         //System.out.println("reached Roman Validator");
@@ -105,8 +105,8 @@ public class Model {
     
     
     /**
-     * 
-     * @param Str 
+     * function that converts the entered ROman numeric to Arabic notation
+     * it creates an object of class ArabicNumberGenerator that handles the number generating
      */
     public void convertToArabic() {
         System.out.println("reached convert to arabic, entered RN: " + inputValue);
@@ -115,8 +115,8 @@ public class Model {
     }
     
     /**
-     * 
-     * 
+     * function that converts the entered Arabic numeric to Roman notation
+     * it creates an object of class RomanNumeralGenerator that handles the number generating
      */
     public void convertToRoman (){
         RomanNumeralGenerator RnGen = new RomanNumeralGenerator();
@@ -124,14 +124,18 @@ public class Model {
     }
     
     /**
-     * 
-     * @return 
+     * getter for the output
+     * @return the converted number in any notation as a string
      */
     public String getOutput(){
-        return this.convertedNumeral;
+        return convertedNumeral;
     }
     
     
+    /**
+     * getter for the boolean that is used as a flag
+     * @return boolean that represents if the input is valid or not
+     */
     public boolean inputCanBeProcessed (){
         return willBeConverted;
     }

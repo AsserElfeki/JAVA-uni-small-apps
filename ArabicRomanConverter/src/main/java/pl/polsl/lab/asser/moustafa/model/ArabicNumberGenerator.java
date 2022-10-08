@@ -4,58 +4,53 @@
  */
 package pl.polsl.lab.asser.moustafa.model;
 
+import java.util.*;
+
 /**
- *
+ *Class for Roman to Arabic numerals conversion
  * @author asser.elfeki
+ * @version 1.1
  */
 public class ArabicNumberGenerator {
     
-    // This function returns
-    // value of a Roman symbol
-    int value(char r)
-    {
-        if (r == 'I')
-            return 1;
-        if (r == 'V')
-            return 5;
-        if (r == 'X')
-            return 10;
-        if (r == 'L')
-            return 50;
-        if (r == 'C')
-            return 100;
-        if (r == 'D')
-            return 500;
-        if (r == 'M')
-            return 1000;
-        return -1;
+    /** Map to retrieve numerical values for each accepted Roman Numeric character*/
+    private Map<Character, Integer> values;
+    /**
+     * Constructor of the class 
+     * it creates the values for the values map
+     */
+    public ArabicNumberGenerator() {  
+        values = new HashMap<Character,Integer>();
+        values.put('I', 1);
+        values.put('V', 5);
+        values.put('X', 10);
+        values.put('L', 50);
+        values.put('C', 100);
+        values.put('D', 500);
+        values.put('M', 1000);
     }
+    
  
-    // Finds decimal value of a
-    // given roman numeral
-    int generate(String str)
+    /**
+     * function that generates an Arabic numeral bases on a given validated Roman numeric
+     * @param romanNumeric represents the Roman numeric entered by user 
+     * @return an integer representing the converted number in Arabic notation
+     */
+    int generate(String romanNumeric)
     {
-        // Initialize result
         int res = 0;
  
-        for (int i = 0; i < str.length(); i++) {
-            // Getting value of symbol s[i]
-            int s1 = value(str.charAt(i));
+        for (int i = 0; i < romanNumeric.length(); i++) {
+            int s1 = values.get((char)romanNumeric.charAt(i));
  
-            // Getting value of symbol s[i+1]
-            if (i + 1 < str.length()) {
-                int s2 = value(str.charAt(i + 1));
+            // Getting value of next symbol to apply substractive principle
+            if (i + 1 < romanNumeric.length()) {
+                int s2 = values.get(romanNumeric.charAt(i + 1));
  
-                // Comparing both values
                 if (s1 >= s2) {
-                    // Value of current symbol
-                    // is greater or equalto
-                    // the next symbol
                     res = res + s1;
                 }
                 else {
-                    // Value of current symbol is
-                    // less than the next symbol
                     res = res + s2 - s1;
                     i++;
                 }
