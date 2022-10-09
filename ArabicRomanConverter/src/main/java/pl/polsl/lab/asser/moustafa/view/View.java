@@ -22,14 +22,14 @@ public class View {
      */
     public View(){
        scanner = new Scanner(System.in);
-       promptUser();
     }
 
     /**
      * Prompts user to enter a number 
      */
     public void promptUser (){
-        System.out.println("Enter a number then press Enter");
+        System.out.print("===========================" 
+                + "\nEnter a number then press Enter: ");
     }
     
     /**
@@ -37,7 +37,7 @@ public class View {
      * @return a String representing the entered numeral 
      */
     public String read() {
-        return scanner.next();
+        return scanner.nextLine();
     }
     
     /**
@@ -45,6 +45,6 @@ public class View {
      * @param convertedNum is the numeral after being processed and converted from one notation to the other. 
      */
     public void outputConvertedNumber(String convertedNum){
-        System.out.println("the converted number is: " + convertedNum);
+        System.out.println("\nthe converted number is: " + convertedNum);
     }
 }

@@ -4,7 +4,7 @@
  */
 package pl.polsl.lab.asser.moustafa.controller;
 
-import pl.polsl.lab.asser.moustafa.model.Model; 
+import pl.polsl.lab.asser.moustafa.model.*; 
 import pl.polsl.lab.asser.moustafa.view.View; 
 
 /**
@@ -24,18 +24,22 @@ public class Controller {
     public static void main(String[] args){
         View view = new View();
         
-        Model model = new Model(view.read());
+        Model model = new Model();
         
-//        while (!model.inputCanBeProcessed()){
-//            model.processInput();
-//        }
+        while (model.getOutput() == null){
+            try{
+                view.promptUser();
+                model.processInput(view.read());
+            }
+            catch (InvalidCharacterException | IllegalArgumentException e){
+                //model.reset();
+                System.err.println(e.getMessage());
+            }
+        }
         
-       
-        view.outputConvertedNumber(model.getOutput());
-        
-
-        
-        
-        
+        view.outputConvertedNumber(model.getOutput());                 
     }
+    
+    
+    
 }
