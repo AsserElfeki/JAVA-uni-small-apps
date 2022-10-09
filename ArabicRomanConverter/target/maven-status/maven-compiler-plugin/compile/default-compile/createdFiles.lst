@@ -1,4 +1,5 @@
 pl/polsl/lab/asser/moustafa/model/RomanNumeralGenerator.class
+pl/polsl/lab/asser/moustafa/model/InvalidCharacterException.class
 pl/polsl/lab/asser/moustafa/view/View.class
 pl/polsl/lab/asser/moustafa/model/ArabicNumberGenerator.class
 pl/polsl/lab/asser/moustafa/controller/Controller.class
