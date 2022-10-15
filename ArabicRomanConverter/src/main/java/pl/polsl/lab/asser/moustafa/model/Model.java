@@ -35,18 +35,15 @@ public class Model {
      * calls the isNumeric function and then calls the according validation function.
      */
     public void processInput(String input) throws InvalidCharacterException{
-        //inputValue = input.toUpperCase();
 
         if (isAlphaNumeric(input)){
             
             if(isNumeric(input)){
-                //inputNumeric = Integer.parseInt(inputValue);
                 view.logMessageToConsole("Your number is in Correct Arabic \"notation\" \n");
                 validateArabicNotation(input);
             }
             else if (isRoman(input)){
                 view.logMessageToConsole("Your number contains only Roman characters");
-//                convertToArabic();
                 validateRomanNotation(input);
             }
             else throw new InvalidCharacterException("You entered an invalid number format"
@@ -76,10 +73,6 @@ public class Model {
     public boolean isRoman(String input){  
         
         return input.toUpperCase().matches("^[IVXLCDM]+");
-//        return inputValue.toUpperCase().matches("^(I[VX]|VI{0,3}|I{1,3})|((X[LC]|"
-//                + "LX{0,3}|X{1,3})(I[VX]|V?I{0,3}))|"
-//                + "((C[DM]|DC{0,3}|C{1,3})(X[LC]|L?X{0,3})(I[VX]|V?I{0,3}))|"
-//                + "(M+(C[DM]|D?C{0,3})(X[LC]|L?X{0,3})(I[VX]|V?I{0,3}))$");
     }
     
     /**
@@ -167,9 +160,4 @@ public class Model {
     public boolean inputCanBeProcessed (){
         return willBeConverted;
     }
-    
-   
 }
-
-
-
