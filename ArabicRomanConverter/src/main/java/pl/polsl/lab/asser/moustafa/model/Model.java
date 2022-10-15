@@ -4,8 +4,7 @@
  */
 package pl.polsl.lab.asser.moustafa.model;
 
-import java.util.regex.*;
-import static pl.polsl.lab.asser.moustafa.model.RomanNumeralGenerator.*;
+import pl.polsl.lab.asser.moustafa.view.View;
 
 /**
  * handles the data and the methods used to process it
@@ -14,6 +13,7 @@ import static pl.polsl.lab.asser.moustafa.model.RomanNumeralGenerator.*;
  */
 public class Model {
     
+    private View view; 
     
     /** the converted numeral (FINAL OUTPUT) (in both notations) is saved here*/
     private String convertedNumeral ; 
@@ -26,7 +26,8 @@ public class Model {
     /**
      * Non-parameter constructor
      */
-    public Model (){
+    public Model (View view){
+        this.view = view;
     }
    
     
@@ -40,25 +41,25 @@ public class Model {
             
             if(isNumeric(input)){
                 //inputNumeric = Integer.parseInt(inputValue);
-                System.out.println("Your number is in Correct Arabic \"notation\" \n");
+                view.logMessageToConsole("Your number is in Correct Arabic \"notation\" \n");
                 validateArabicNotation(input);
             }
             else if (isRoman(input)){
-                System.out.println("Your number contains only Roman characters");
+                view.logMessageToConsole("Your number contains only Roman characters");
 //                convertToArabic();
                 validateRomanNotation(input);
             }
             else throw new InvalidCharacterException("You entered an invalid number format"
-                    + "\n might contain non-Roman letterals, or combiation of arabic and roman notations.. try again");
+                    + "\nmight contain non-Roman letterals, or combiation of arabic and roman notations.. try again");
         }
         
         
         else {
             throw new InvalidCharacterException("\nThe number you entered contains unnaccepted characters"
-                + "\nAccepted characters are only:"
-                + "\n* Only POSITIVE numbers from 1 to 3999 (for numbers in Arabc notation)"
-                + "\n* Characters 'I', 'V', 'X', 'L', 'C', 'D', 'M'. "
-                + "(lower case accepted - for Roman notation)\n");
+                    + "\nAccepted characters are only:"
+                    + "\n* Only POSITIVE numbers from 1 to 3999 (for numbers in Arabc notation)"
+                    + "\n* Characters 'I', 'V', 'X', 'L', 'C', 'D', 'M'. "
+                    + "(lower case accepted - for Roman notation)\n");
         }
     }
     
@@ -85,7 +86,7 @@ public class Model {
      * checks if the input is numeric or not 
      * @return true if Numeric and false if not
      */
-    public boolean isNumeric(String input) throws InvalidCharacterException{
+    public boolean isNumeric(String input) {
         if (input == null || input == ""){
             return false;
         }  
@@ -103,7 +104,7 @@ public class Model {
      */
     public void validateArabicNotation(String input) throws IllegalArgumentException{
         int inputNumeric = Integer.parseInt(input);
-        if (inputNumeric < 1 || inputNumeric > 3999){
+        if (inputNumeric < 1 || inputNumeric > 3_999){
             throw new IllegalArgumentException("Validating number (" + inputNumeric + ") failed: number must be between 1 and 3999");
         }
         else {
@@ -133,7 +134,7 @@ public class Model {
      * it creates an object of class ArabicNumberGenerator that handles the number generating
      */
     public void convertToArabic(String input) {
-        System.out.println("\n Number is Validated" 
+        view.logMessageToConsole("\n Number is Validated" 
                     +"\nConverting number now...");
         ArabicNumberGenerator ArGen = new ArabicNumberGenerator();
         convertedNumeral =  Integer.toString(ArGen.generate(input)) ;
@@ -144,7 +145,7 @@ public class Model {
      * it creates an object of class RomanNumeralGenerator that handles the number generating
      */
     public void convertToRoman (int inputNumeric){
-        System.out.println("\n Number is Validated" 
+        view.logMessageToConsole("\n Number is Validated" 
                     +"\nConverting number now...");
         RomanNumeralGenerator RnGen = new RomanNumeralGenerator();
         convertedNumeral = RnGen.generate(inputNumeric);

@@ -15,7 +15,9 @@ import pl.polsl.lab.asser.moustafa.view.View;
  * @version 1.1
  */
 public class Controller {
+    private View view; 
     
+    private Model model; 
     /**
      * main method of the app. 
      * 
@@ -24,7 +26,7 @@ public class Controller {
     public static void main(String[] args){
         View view = new View();
         
-        Model model = new Model();
+        Model model = new Model(view);
         
         while (model.getOutput() == null){
             try{
@@ -32,14 +34,14 @@ public class Controller {
                 model.processInput(view.read());
             }
             catch (InvalidCharacterException | IllegalArgumentException e){
-                //model.reset();
-                System.err.println(e.getMessage());
+                
+                view.logExceptionToConsole(e.getMessage());
             }
         }
         
         view.outputConvertedNumber(model.getOutput());                 
     }
     
-    
-    
 }
+
+

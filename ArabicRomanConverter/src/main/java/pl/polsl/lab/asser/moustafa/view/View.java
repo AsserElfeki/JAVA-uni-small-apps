@@ -47,4 +47,12 @@ public class View {
     public void outputConvertedNumber(String convertedNum){
         System.out.println("\nthe converted number is: " + convertedNum);
     }
+    
+    public void logExceptionToConsole (String ExceptionMessage){
+        System.err.println(ExceptionMessage);
+    }
+    
+    public void logMessageToConsole (String message){
+        System.out.println(message);
+    }
 }
