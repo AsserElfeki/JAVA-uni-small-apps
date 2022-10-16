@@ -1,0 +1,51 @@
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+-source
+'19'
+-sourcepath
+'/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'ArabicRomanConverter 1.0 API'
+-use
+-version
+-windowtitle
+'ArabicRomanConverter 1.0 API'
+pl.polsl.lab.asser.moustafa.controller
+pl.polsl.lab.asser.moustafa.model
+pl.polsl.lab.asser.moustafa.view
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/src/main/java/.DS_Store = 1665861766441
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/src/main/java = 1665936506000
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/tag-search-index.js = 1665937400197
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/overview-tree.html = 1665937400187
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/module-search-index.js = 1665937400197
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/index.html = 1665937400188
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/package-search-index.js = 1665937400197
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/jquery-ui.overrides.css = 1665937400216
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/serialized-form.html = 1665937400170
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/index-all.html = 1665937400208
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/allpackages-index.html = 1665937400196
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/member-search-index.js = 1665937400197
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/copy.svg = 1665937400214
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/script.js = 1665937400213
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/stylesheet.css = 1665937400212
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/search-page.js = 1665937400215
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/overview-summary.html = 1665937400210
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/help-doc.html = 1665937400211
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/javadoc.sh = 1665937348959
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/element-list = 1665937400155
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/search.html = 1665937400209
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/allclasses-index.html = 1665937400195
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/type-search-index.js = 1665937400197
+/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/site/apidocs/search.js = 1665937400214

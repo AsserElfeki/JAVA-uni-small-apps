@@ -5,7 +5,10 @@
 package pl.polsl.lab.asser.moustafa.model;
 
 /**
- * Class for Arabic to Roman numerals conversion
+ * Class for Arabic to Roman numerals conversion.
+ * <p>
+ * Stores lists of String that are variations of accepted Roman characters.
+ * Handles generating a Roman number based on an input integer.
  * @author asser.elfeki
  * @version 1.1
  */
@@ -23,9 +26,16 @@ public class RomanNumeralGenerator {
     
     /** array of strings representing the "ONES" --> blank , 1, 2, 3, ... , 9 */
     private static final String[] RN_I = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+    
+    /**
+     * Default non-parametric constructor.
+     */
+    public RomanNumeralGenerator(){
+        
+    }
 
     /**
-     * A function that generates a roman Number based on a given integer
+     * Generates a roman Number based on a given integer.
      * @param number is the Arabic number entered by user, after being validated
      * @return a string representing the converted number
      */
