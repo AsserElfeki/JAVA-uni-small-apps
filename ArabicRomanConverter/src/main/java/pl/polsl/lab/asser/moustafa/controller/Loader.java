@@ -33,12 +33,12 @@ public class Loader {
     /**
      * Field for the inner object of <code>Class View</code>
      */
-    private View view = new View();
+    private final View view = new View();
 
     /**
      * Field for the inner object of <code>Class View</code>
      */
-    private Model model = new Model(view);
+    private final Model model = new Model(view);
 
     /**
      * Default non-parametric constructor
@@ -94,19 +94,22 @@ public class Loader {
      */
     public void runWithTwoArgs(String[] args) throws IllegalArgumentException {
         while (model.getOutput() == null) {
-            if ("-a".equals(args[0].toLowerCase())) {
-
-                if (model.isNumeric(args[1])) {
-                    model.validateArabicNotation(args[1]);
-                } else {
-                    throw new IllegalArgumentException("You entered a non-umeric value.");
+            if (null != args[0].toLowerCase()) switch (args[0].toLowerCase()) {
+                case "-a" -> {
+                    if (model.isNumeric(args[1])) {
+                        model.validateArabicNotation(args[1]);
+                    } else {
+                        throw new IllegalArgumentException("You entered a non-umeric value.");
+                    }
                 }
-            } else if ("-r".equals(args[0].toLowerCase())) {
-                if (model.isRoman(args[1])) {
-                    model.validateRomanNotation(args[1]);
-                } else {
-                    throw new IllegalArgumentException("You entered a non-roman characters.");
+                case "-r" -> {
+                    if (model.isRoman(args[1])) {
+                        model.validateRomanNotation(args[1]);
+                    } else {
+                        throw new IllegalArgumentException("You entered a non-roman characters.");
+                    }
                 }
+                default -> throw new IllegalArgumentException("Invalid arguments");
             } else {
                 throw new IllegalArgumentException("Invalid arguments");
             }

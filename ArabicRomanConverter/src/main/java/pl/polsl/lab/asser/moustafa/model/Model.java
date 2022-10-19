@@ -63,15 +63,18 @@ public class Model {
                 view.logMessageToConsole("Your number contains only Roman characters");
                 validateRomanNotation(input);
             } else {
-                throw new InvalidCharacterException("You entered an invalid number format"
-                        + "\nmight contain non-Roman letterals, or combiation of arabic and roman notations.. try again");
+                throw new InvalidCharacterException("""
+                                                    You entered an invalid number format
+                                                    might contain non-Roman letterals, or combiation of arabic and roman notations.. try again""");
             }
         } else {
-            throw new InvalidCharacterException("\nThe number you entered contains unnaccepted characters"
-                    + "\nAccepted characters are only:"
-                    + "\n* Only POSITIVE numbers from 1 to 3999 (for numbers in Arabc notation)"
-                    + "\n* Characters 'I', 'V', 'X', 'L', 'C', 'D', 'M'. "
-                    + "(lower case accepted - for Roman notation)\n");
+            throw new InvalidCharacterException("""
+                                                
+                                                The number you entered contains unnaccepted characters
+                                                Accepted characters are only:
+                                                * Only POSITIVE numbers from 1 to 3999 (for numbers in Arabc notation)
+                                                * Characters 'I', 'V', 'X', 'L', 'C', 'D', 'M'. (lower case accepted - for Roman notation)
+                                                """);
         }
     }
 
@@ -101,13 +104,9 @@ public class Model {
      * @return true if Numeric and false if not
      */
     public boolean isNumeric(String input) {
-        if (input == null || input == "") {
+        if (input == null || "".equals(input)) {
             return false;
-        } else if (!input.matches("^[0-9]+$")) {
-            return false;
-        } else {
-            return true;
-        }
+        } else return input.matches("^[0-9]+$");
     }
 
     
@@ -158,8 +157,10 @@ public class Model {
      * @param input User's input
      */
     public void convertToArabic(String input) {
-        view.logMessageToConsole("\n Number is Validated"
-                + "\nConverting number now...");
+        view.logMessageToConsole("""
+                                 
+                                 Number is Validated
+                                 Converting number now...""");
         ArabicNumberGenerator ArGen = new ArabicNumberGenerator();
         convertedNumeral = Integer.toString(ArGen.generate(input));
     }
@@ -172,8 +173,10 @@ public class Model {
      * @param inputNumeric User's input parsed to integer.
      */
     public void convertToRoman(int inputNumeric) {
-        view.logMessageToConsole("\n Number is Validated"
-                + "\nConverting number now...");
+        view.logMessageToConsole("""
+                                 
+                                 Number is Validated
+                                 Converting number now...""");
         RomanNumeralGenerator RnGen = new RomanNumeralGenerator();
         convertedNumeral = RnGen.generate(inputNumeric);
     }

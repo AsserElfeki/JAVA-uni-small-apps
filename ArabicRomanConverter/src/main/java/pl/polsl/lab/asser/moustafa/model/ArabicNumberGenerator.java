@@ -19,14 +19,14 @@ public class ArabicNumberGenerator {
     /**
      * Map to retrieve numerical values for each accepted Roman Numeric character
      */
-    private Map<Character, Integer> values;
+    private final Map<Character, Integer> values;
 
     /**
      * Default non-parametric Constructor of the class.
      * it creates the values for the values map
      */
     public ArabicNumberGenerator() {
-        values = new HashMap<Character, Integer>();
+        values = new HashMap<>();
         values.put('I', 1);
         values.put('V', 5);
         values.put('X', 10);

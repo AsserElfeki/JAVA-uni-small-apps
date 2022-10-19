@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class View {
     
-    private Scanner scanner;
+    private final Scanner scanner;
     
     /**
      * default non-argument constructor. 
@@ -27,8 +27,9 @@ public class View {
      * Prompts user to enter a number 
      */
     public void promptUser (){
-        System.out.print("===========================" 
-                + "\nEnter a number then press Enter: ");
+        System.out.print("""
+                         ===========================
+                         Enter a number then press Enter: """);
     }
     
     /**
@@ -44,6 +45,7 @@ public class View {
      * @param convertedNum is the numeral after being processed and converted from one notation to the other. 
      */
     public void outputConvertedNumber(String convertedNum){
+        scanner.close();
         System.out.println("\nthe converted number is: " + convertedNum);
     }
     
@@ -67,12 +69,16 @@ public class View {
      * Prints help guide to the user if some wrong arguments were provided.
      */
     public void printHelp(){
-            System.out.println("DIFFERENT MODES OF PROGRAM OPERATION:\n"
-            +"\n1- To convert from Arabic to Roman : enter parameter : '-a' then the number"
-            +"\nexample: -a 150\n"
-            +"\n2- To convert from Roman to Arabic : enter parameter : -r"
-            +"\nexample: -R XXI\n"
-            +"\n3- you can run the program without any parameters and it will later ask you to enter a number"
-            +"\nand will figure out the notation and convert it automatically");
+            System.out.println("""
+                               DIFFERENT MODES OF PROGRAM OPERATION:
+                               
+                               1- To convert from Arabic to Roman : enter parameter : '-a' then the number
+                               example: -a 150
+                               
+                               2- To convert from Roman to Arabic : enter parameter : -r
+                               example: -R XXI
+                               
+                               3- you can run the program without any parameters and it will later ask you to enter a number
+                               and will figure out the notation and convert it automatically""");
         }
 }

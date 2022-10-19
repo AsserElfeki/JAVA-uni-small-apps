@@ -22,26 +22,27 @@ package pl.polsl.lab.asser.moustafa.controller;
  * @version 1.2
  */
 public class Controller {
-    
+
     /**
      * Default non-parametric constructor
      */
-    public Controller(){
-        
+    public Controller() {
+
     }
 
     /**
-     * main method of the app.
-     * Work flow:
+     * main method of the app. Work flow:
      * <ol>
      * <li>Creates <code>Class Loader</code> object.
-     * <li>Checks number of provided arguemnts.
+     * <li>Checks number of provided arguments.
      * <li>Tries to call the proper <code>Class Loader</code> method.
      * <li>Catches the Exceptions if any.
      * <li>updates the <code>Class View</code> object.
      * </ol>
-     * @param args List of strings representing arguments given by the user in the command line
-     * to specify the direction of number conversion and the input number.      
+     *
+     * @param args List of strings representing arguments given by the user in
+     * the command line to specify the direction of number conversion and the
+     * input number.
      */
     public static void main(String[] args) {
 
