@@ -4,7 +4,10 @@
  */
 package pl.polsl.lab.asser.moustafa.model;
 
+import java.util.Arrays;
+import java.util.List;
 import pl.polsl.lab.asser.moustafa.view.View;
+import java.util.stream.*;
 
 /**
  * Model handles the data processing and storing and has all the methods used to
@@ -53,7 +56,7 @@ public class Model {
      * </ul>
      */
     public void processInput(String input) throws InvalidCharacterException {
-
+        
         if (isAlphaNumeric(input)) {
 
             if (isNumeric(input)) {
@@ -83,7 +86,7 @@ public class Model {
      * @param input User's input.
      * @return true if there is a match, false otherwise.
      */
-    public boolean isAlphaNumeric(String input) {
+    private boolean isAlphaNumeric(String input) {
         return input.matches("^[a-zA-Z0-9]+$");
     }
 
@@ -94,7 +97,6 @@ public class Model {
      * @return true if it is valid, false otherwise.
      */
     public boolean isRoman(String input) {
-
         return input.toUpperCase().matches("^[IVXLCDM]+");
     }
 
@@ -118,6 +120,7 @@ public class Model {
      */
     public void validateArabicNotation(String input) throws IllegalArgumentException {
         int inputNumeric = Integer.parseInt(input);
+        
         if (inputNumeric < 1 || inputNumeric > 3_999) {
             throw new IllegalArgumentException("Validating number (" + inputNumeric + ") failed: number must be between 1 and 3999");
         } else {
@@ -156,7 +159,7 @@ public class Model {
      * generating
      * @param input User's input
      */
-    public void convertToArabic(String input) {
+    private void convertToArabic(String input) {
         view.logMessageToConsole("""
                                  
                                  Number is Validated
@@ -172,7 +175,7 @@ public class Model {
      * generating
      * @param inputNumeric User's input parsed to integer.
      */
-    public void convertToRoman(int inputNumeric) {
+    private void convertToRoman(int inputNumeric) {
         view.logMessageToConsole("""
                                  
                                  Number is Validated

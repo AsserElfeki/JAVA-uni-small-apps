@@ -4,10 +4,14 @@
  */
 package pl.polsl.lab.asser.moustafa.controller;
 
+import java.lang.annotation.Documented;
+import lombok.Data;
 import pl.polsl.lab.asser.moustafa.model.*;
-
 import pl.polsl.lab.asser.moustafa.view.View;
 
+        
+
+     
 /**
  * Class that uses the <code>Class Model</code> and the <code>Class View</code>
  * objects and has all the communication functions between the MVC pattern
@@ -28,8 +32,11 @@ import pl.polsl.lab.asser.moustafa.view.View;
  * @author asser.elfeki
  * @version 1.0
  */
+//@Documented
+@Data
 public class Loader {
-
+    
+    
     /**
      * Field for the inner object of <code>Class View</code>
      */
@@ -44,7 +51,7 @@ public class Loader {
      * Default non-parametric constructor
      */
     public Loader(){
-        
+            
     }
     
     /**
@@ -94,7 +101,8 @@ public class Loader {
      */
     public void runWithTwoArgs(String[] args) throws IllegalArgumentException {
         while (model.getOutput() == null) {
-            if (null != args[0].toLowerCase()) switch (args[0].toLowerCase()) {
+            if (null != args[0]) 
+                switch (args[0].toLowerCase()) {
                 case "-a" -> {
                     if (model.isNumeric(args[1])) {
                         model.validateArabicNotation(args[1]);
@@ -110,9 +118,7 @@ public class Loader {
                     }
                 }
                 default -> throw new IllegalArgumentException("Invalid arguments");
-            } else {
-                throw new IllegalArgumentException("Invalid arguments");
-            }
+            } 
         }
     }
 
