@@ -8,6 +8,7 @@ import java.lang.annotation.Documented;
 import lombok.Data;
 import pl.polsl.lab.asser.moustafa.model.*;
 import pl.polsl.lab.asser.moustafa.view.View;
+import pl.polsl.lab.asser.moustafa.view.ViewGUI;
 
         
 
@@ -32,10 +33,10 @@ import pl.polsl.lab.asser.moustafa.view.View;
  * @author asser.elfeki
  * @version 1.0
  */
-//@Documented
 @Data
 public class Loader {
     
+//    private ViewGUI gui;
     
     /**
      * Field for the inner object of <code>Class View</code>
@@ -51,7 +52,6 @@ public class Loader {
      * Default non-parametric constructor
      */
     public Loader(){
-            
     }
     
     /**

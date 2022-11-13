@@ -20,7 +20,8 @@ import java.util.stream.Stream;
 public class RomanNumeralGenerator {
 
     /**
-     * 
+     * Enum type representing the Characters used in Roman notation.
+     * Four different instances, for different values of each multiple of 10 up to Thousands
      */
     public enum RomanCharacters {
         THOUSANDS("", "M", "MM", "MMM"),
@@ -35,7 +36,8 @@ public class RomanNumeralGenerator {
         private List<String> romanLiterals; 
         
         /**
-         * 
+         * private constructor.
+         * takes var args and unpacks them to instantiate the correct number of String fields in an instance
          * @param literals 
          */
         RomanCharacters(String... literals){
@@ -47,9 +49,9 @@ public class RomanNumeralGenerator {
         }
         
         /**
-         * 
-         * @param index
-         * @return 
+         * Method for retrieving values from Roman literals Lists according to their index/value
+         * @param index index of the literal in the list
+         * @return String representing the desired roman numeral
          */
         private String get(int index){
             return this.romanLiterals.get(index);

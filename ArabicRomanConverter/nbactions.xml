@@ -8,6 +8,8 @@
             <goals>
                 <goal>generate-sources</goal>
                 <goal>javadoc:javadoc</goal>
+                <goal>javadoc:test-javadoc</goal>
+                
             </goals>
             <properties>
                 <field>show</field>

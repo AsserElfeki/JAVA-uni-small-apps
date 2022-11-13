@@ -86,7 +86,7 @@ public class Model {
      * @param input User's input.
      * @return true if there is a match, false otherwise.
      */
-    private boolean isAlphaNumeric(String input) {
+    public boolean isAlphaNumeric(String input) {
         return input.matches("^[a-zA-Z0-9]+$");
     }
 

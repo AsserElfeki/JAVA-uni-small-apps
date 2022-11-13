@@ -1,0 +1,12 @@
+# Created at 2022-11-13T00:26:42.897
+Nov 13, 2022 12:26:42 AM org.junit.jupiter.engine.descriptor.DisplayNameUtils determineDisplayName
+
+# Created at 2022-11-13T00:26:42.897
+WARNING: Configuration error: @DisplayName on [public void pl.polsl.lab.asser.moustafa.model.test.ModelTest.testProcessInput()] must be declared with a non-empty value.
+
+# Created at 2022-11-13T00:26:42.907
+Nov 13, 2022 12:26:42 AM org.junit.jupiter.engine.descriptor.DisplayNameUtils determineDisplayName
+
+# Created at 2022-11-13T00:26:42.907
+WARNING: Configuration error: @DisplayName on [public void pl.polsl.lab.asser.moustafa.model.test.ModelTest.testProcessInput()] must be declared with a non-empty value.
+

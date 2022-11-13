@@ -4,6 +4,9 @@
  */
 package pl.polsl.lab.asser.moustafa.controller;
 
+import pl.polsl.lab.asser.moustafa.view.AppWindow;
+import pl.polsl.lab.asser.moustafa.view.ViewGUI;
+
 /**
  * Main class of the program, it acts as the intermediary between the
  * <code>class Model</code> and the <code>class View</code> so the proper
@@ -45,10 +48,16 @@ public class Controller {
      * input number.
      */
     public static void main(String[] args) {
-
         
         Loader loader = new Loader();
-       
+        
+        //creating window object and running it
+        AppWindow appWindow = new AppWindow(); 
+        
+        
+//               java.awt.EventQueue.invokeLater(() -> {
+//                   loader.getGui().setVisible(true);
+//        });
         
         if (args.length < 1) {
             loader.runWithoutArgs();

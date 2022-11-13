@@ -29,7 +29,7 @@ public class View {
     public void promptUser (){
         System.out.print("""
                          ===========================
-                         Enter a number then press Enter: """);
+                         Enter a number then press Enter:  """);
     }
     
     /**
