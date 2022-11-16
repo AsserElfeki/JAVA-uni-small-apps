@@ -4,8 +4,7 @@
  */
 package pl.polsl.lab.asser.moustafa.controller;
 
-import pl.polsl.lab.asser.moustafa.view.AppWindow;
-import pl.polsl.lab.asser.moustafa.view.ViewGUI;
+
 
 /**
  * Main class of the program, it acts as the intermediary between the
@@ -26,6 +25,7 @@ import pl.polsl.lab.asser.moustafa.view.ViewGUI;
  */
 public class Controller {
 
+//    private AppWindow appWindow;
     /**
      * Default non-parametric constructor
      */
@@ -48,18 +48,24 @@ public class Controller {
      * input number.
      */
     public static void main(String[] args) {
+
+        Loader loader = new Loader();
+
+        loader.runFromGUI();
         
+    }
+    
+    /**
+     * Runs the app in the console.
+     * @param args List of strings representing arguments given by the user in
+     * the command line to specify the direction of number conversion and the
+     * input number
+     */
+    @Deprecated
+    private void runInConsole(String[] args){
         Loader loader = new Loader();
         
-        //creating window object and running it
-        AppWindow appWindow = new AppWindow(); 
-        
-        
-//               java.awt.EventQueue.invokeLater(() -> {
-//                   loader.getGui().setVisible(true);
-//        });
-        
-        if (args.length < 1) {
+                if (args.length < 1) {
             loader.runWithoutArgs();
         } else if (args.length == 1) {
             loader.help();
@@ -74,6 +80,5 @@ public class Controller {
             loader.logException("Invalid arguments");
         }
         loader.getOutput();
-
     }
 }

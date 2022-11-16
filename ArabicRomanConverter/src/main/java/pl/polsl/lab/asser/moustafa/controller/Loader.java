@@ -5,14 +5,12 @@
 package pl.polsl.lab.asser.moustafa.controller;
 
 import java.lang.annotation.Documented;
+import javax.swing.JOptionPane;
 import lombok.Data;
 import pl.polsl.lab.asser.moustafa.model.*;
+import pl.polsl.lab.asser.moustafa.view.AppWindow;
 import pl.polsl.lab.asser.moustafa.view.View;
-import pl.polsl.lab.asser.moustafa.view.ViewGUI;
 
-        
-
-     
 /**
  * Class that uses the <code>Class Model</code> and the <code>Class View</code>
  * objects and has all the communication functions between the MVC pattern
@@ -35,29 +33,63 @@ import pl.polsl.lab.asser.moustafa.view.ViewGUI;
  */
 @Data
 public class Loader {
-    
-//    private ViewGUI gui;
-    
+
+    /**
+     * Field for the inner object of <code>Class AppWindow</code>
+     */
+    private final AppWindow appWindow = new AppWindow();
+
     /**
      * Field for the inner object of <code>Class View</code>
      */
     private final View view = new View();
 
     /**
-     * Field for the inner object of <code>Class View</code>
+     * Field for the inner object of <code>Class Model</code>
      */
-    private final Model model = new Model(view);
+    private final Model model = new Model(appWindow);
 
     /**
      * Default non-parametric constructor
      */
-    public Loader(){
+    public Loader() {
     }
-    
+
+    /**
+     * Function that runs the program in the Swing GUI.
+     * it listens to events on the convert button and handles it.
+     */
+    public void runFromGUI() {
+        appWindow.getConvertBtn().addActionListener(e -> {
+            try {
+                if (appWindow.getArToRn().isSelected()) {
+                    if (model.isNumeric(appWindow.getInput().getText())) {
+                        model.validateArabicNotation(appWindow.getInput().getText());
+                    } else {
+                        throw new IllegalArgumentException("Illegal arguments: non-numeric values entered");
+                    }
+                } else {
+                    if (model.isRoman(appWindow.getInput().getText())) {
+                        model.validateRomanNotation(appWindow.getInput().getText());
+                    } else {
+                        throw new IllegalArgumentException("Illegal arguments: non-roman characters entered");
+                    }
+                }
+                if (model.getOutput() != null) {
+                    appWindow.getOutput().setText("Converted number: \n" + model.getOutput());
+                }
+            } catch (IllegalArgumentException ex) {
+                appWindow.showWarning(ex.getMessage());
+            }
+
+        });
+    }
+
     /**
      * Uses the <code>Class View</code> object to print a guide on how to use
      * the application and what arguments to provide
      */
+    @Deprecated
     public void help() {
         view.printHelp();
     }
@@ -73,7 +105,9 @@ public class Loader {
      * <li>handle exceptions.
      * </ul>
      */
+    @Deprecated
     public void runWithoutArgs() {
+
         while (model.getOutput() == null) {
             try {
                 view.promptUser();
@@ -82,6 +116,7 @@ public class Loader {
 
                 view.logExceptionToConsole(e.getMessage());
             }
+
         }
     }
 
@@ -99,44 +134,55 @@ public class Loader {
      * input is or contains non-Roman characters.IllegalArgumentException.
      * </ul>
      */
+    @Deprecated
     public void runWithTwoArgs(String[] args) throws IllegalArgumentException {
+
         while (model.getOutput() == null) {
-            if (null != args[0]) 
+            if (null != args[0]) {
                 switch (args[0].toLowerCase()) {
-                case "-a" -> {
-                    if (model.isNumeric(args[1])) {
-                        model.validateArabicNotation(args[1]);
-                    } else {
-                        throw new IllegalArgumentException("You entered a non-umeric value.");
+                    case "-a" -> {
+                        if (model.isNumeric(args[1])) {
+                            model.validateArabicNotation(args[1]);
+                        } else {
+                            throw new IllegalArgumentException("You entered a non-umeric value.");
+                        }
                     }
-                }
-                case "-r" -> {
-                    if (model.isRoman(args[1])) {
-                        model.validateRomanNotation(args[1]);
-                    } else {
-                        throw new IllegalArgumentException("You entered a non-roman characters.");
+                    case "-r" -> {
+                        if (model.isRoman(args[1])) {
+                            model.validateRomanNotation(args[1]);
+                        } else {
+                            throw new IllegalArgumentException("You entered a non-roman characters.");
+                        }
                     }
+                    default ->
+                        throw new IllegalArgumentException("Invalid arguments");
                 }
-                default -> throw new IllegalArgumentException("Invalid arguments");
-            } 
+            }
         }
     }
 
     /**
-     * uses the <code>Class View</code> methods to log Exception messages to the console.
+     * uses the <code>Class View</code> methods to log Exception messages to the
+     * console.
+     *
      * @param message is the String message of a specific exception.
      */
+    @Deprecated
     public void logException(String message) {
         view.logExceptionToConsole(message);
     }
 
     /**
-     * Checks if output exists then uses the <code>Class View</code> method <code>outputConvertedNumber(String output)</code> to display it on the console.
+     * Checks if output exists then uses the <code>Class View</code> method
+     * <code>outputConvertedNumber(String output)</code> to display it on the
+     * console.
      */
+    @Deprecated
     public void getOutput() {
         if (model.getOutput() != null) {
             view.outputConvertedNumber(model.getOutput());
         }
 
     }
+
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="pl.polsl.lab.asser.moustafa.model.test.ArabicNumberGeneratorTest" time="0.012" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="pl.polsl.lab.asser.moustafa.model.test.ArabicNumberGeneratorTest" time="0.014" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="19"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -7,13 +7,12 @@
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
-    <property name="user.timezone" value="Europe/Warsaw"/>
     <property name="os.name" value="Mac OS X"/>
     <property name="java.vm.specification.version" value="19"/>
     <property name="user.country" value="PL"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-19.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/surefire/surefirebooter15006551046159158333.jar /Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/surefire 2022-11-13T00-26-42_621-jvmRun1 surefire18247033765873858062tmp surefire_09492452038101394134tmp"/>
+    <property name="sun.java.command" value="/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/surefire/surefirebooter9900693882611744780.jar /Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/surefire 2022-11-16T23-17-42_906-jvmRun1 surefire4969660705389048261tmp surefire_018299226020271204349tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/test-classes:/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/classes:/Users/asser.elfeki/.m2/repository/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar:/Users/asser.elfeki/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.0/junit-jupiter-api-5.6.0.jar:/Users/asser.elfeki/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/Users/asser.elfeki/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/asser.elfeki/.m2/repository/org/junit/platform/junit-platform-commons/1.6.0/junit-platform-commons-1.6.0.jar:/Users/asser.elfeki/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.6.0/junit-jupiter-params-5.6.0.jar:/Users/asser.elfeki/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.0/junit-jupiter-engine-5.6.0.jar:/Users/asser.elfeki/.m2/repository/org/junit/platform/junit-platform-engine/1.6.0/junit-platform-engine-1.6.0.jar:/Users/asser.elfeki/.m2/repository/org/netbeans/external/AbsoluteLayout/RELEASE150/AbsoluteLayout-RELEASE150.jar:"/>
@@ -30,7 +29,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/surefire/surefirebooter15006551046159158333.jar"/>
+    <property name="surefire.real.class.path" value="/Users/asser.elfeki/Documents/POLSL/Sem 5/JiIAMD/lab/JAVA-uni-small-apps/ArabicRomanConverter/target/surefire/surefirebooter9900693882611744780.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="19+36-2238"/>
@@ -61,7 +60,7 @@
   </properties>
   <testcase name="MMXXII_ShouldGenerate2022" classname="pl.polsl.lab.asser.moustafa.model.test.ArabicNumberGeneratorTest" time="0.005"/>
   <testcase name="X_ShouldGenerate10" classname="pl.polsl.lab.asser.moustafa.model.test.ArabicNumberGeneratorTest" time="0"/>
-  <testcase name="CLXXXVI_ShouldGenerate186" classname="pl.polsl.lab.asser.moustafa.model.test.ArabicNumberGeneratorTest" time="0.001"/>
+  <testcase name="CLXXXVI_ShouldGenerate186" classname="pl.polsl.lab.asser.moustafa.model.test.ArabicNumberGeneratorTest" time="0"/>
   <testcase name="IIII_CouldGenerate4" classname="pl.polsl.lab.asser.moustafa.model.test.ArabicNumberGeneratorTest" time="0"/>
   <testcase name="X_ShouldNotGenerate100" classname="pl.polsl.lab.asser.moustafa.model.test.ArabicNumberGeneratorTest" time="0.001"/>
   <testcase name="V_ShouldGenerateFour" classname="pl.polsl.lab.asser.moustafa.model.test.ArabicNumberGeneratorTest" time="0"/>

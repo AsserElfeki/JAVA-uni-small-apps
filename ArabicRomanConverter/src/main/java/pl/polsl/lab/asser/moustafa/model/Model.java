@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import pl.polsl.lab.asser.moustafa.view.View;
 import java.util.stream.*;
+import pl.polsl.lab.asser.moustafa.view.AppWindow;
 
 /**
  * Model handles the data processing and storing and has all the methods used to
@@ -25,7 +26,7 @@ import java.util.stream.*;
 public class Model {
 
     private View view;
-
+    private AppWindow appWindow;
     /**
      * the converted numeral (FINAL OUTPUT) (in both notations) is saved here
      */
@@ -35,10 +36,11 @@ public class Model {
      * One-parameter constructor used to set the field <code>view</code> of type
      * <code>class View</code> to the same view object that was created in the
      * controller.
-     * @param view the view object passed from the controller
+     * @param appWindow the view instance
      */
-    public Model(View view) {
-        this.view = view;
+    public Model(AppWindow appWindow) {
+        this.appWindow = appWindow;
+        //this.view = new View();
     }
 
     /**
@@ -55,8 +57,9 @@ public class Model {
      * <li>input is not alphanumeric.
      * </ul>
      */
+    @Deprecated
     public void processInput(String input) throws InvalidCharacterException {
-        
+
         if (isAlphaNumeric(input)) {
 
             if (isNumeric(input)) {
@@ -83,6 +86,7 @@ public class Model {
 
     /**
      * Uses regex to match the input to only letters and numbers.
+     *
      * @param input User's input.
      * @return true if there is a match, false otherwise.
      */
@@ -91,8 +95,8 @@ public class Model {
     }
 
     /**
-     * Checks if the entered input is a valid roman numeric, using
-     * regex.
+     * Checks if the entered input is a valid roman numeric, using regex.
+     *
      * @param input User's input.
      * @return true if it is valid, false otherwise.
      */
@@ -102,25 +106,28 @@ public class Model {
 
     /**
      * checks if the input is numeric or not
+     *
      * @param input User's input.
      * @return true if Numeric and false if not
      */
     public boolean isNumeric(String input) {
         if (input == null || "".equals(input)) {
             return false;
-        } else return input.matches("^[0-9]+$");
+        } else {
+            return input.matches("^[0-9]+$");
+        }
     }
 
-    
     /**
-     * When the user enters a number in Arabic notation, it validates whether or not it lies in the accepted range
-     * which is from 1 to 3999
+     * When the user enters a number in Arabic notation, it validates whether or
+     * not it lies in the accepted range which is from 1 to 3999
+     *
      * @param input User's input.
      * @throws IllegalArgumentException if the number is out of range.
      */
     public void validateArabicNotation(String input) throws IllegalArgumentException {
         int inputNumeric = Integer.parseInt(input);
-        
+
         if (inputNumeric < 1 || inputNumeric > 3_999) {
             throw new IllegalArgumentException("Validating number (" + inputNumeric + ") failed: number must be between 1 and 3999");
         } else {
@@ -129,14 +136,17 @@ public class Model {
     }
 
     /**
-     * When the user enters a number in Roman notation, it validates whether or not the input is in the correct format using a regex,
-     * and confirms that the input follows the subtractive notation used in Roman numbers.
+     * When the user enters a number in Roman notation, it validates whether or
+     * not the input is in the correct format using a regex, and confirms that
+     * the input follows the subtractive notation used in Roman numbers.
      * <p>
      * for example 4 in Roman notation is IV and not IIII
      * <p>
-     * It sets 
+     * It sets
+     *
      * @param input User's input
-     * @throws IllegalArgumentException when the input does not match the regex, which means it's not in correct roman numeric format.
+     * @throws IllegalArgumentException when the input does not match the regex,
+     * which means it's not in correct roman numeric format.
      */
     public void validateRomanNotation(String input) throws IllegalArgumentException {
         boolean match = input.toUpperCase().matches("^(I[VX]|VI{0,3}|I{1,3})|((X[LC]|"
@@ -155,44 +165,58 @@ public class Model {
     /**
      * Converts the entered Roman numeric to Arabic notation.
      * <p>
-     * it creates an object of class ArabicNumberGenerator that handles the number
-     * generating
+     * it creates an object of class ArabicNumberGenerator that handles the
+     * number generating
+     *
      * @param input User's input
      */
     private void convertToArabic(String input) {
-        view.logMessageToConsole("""
+//        view.logMessageToConsole("""
+//                                 
+//                                 Number is Validated roman
+//                                 Converting number now...""");
+        appWindow.showInfo("""
                                  
                                  Number is Validated
                                  Converting number now...""");
         ArabicNumberGenerator ArGen = new ArabicNumberGenerator();
         convertedNumeral = Integer.toString(ArGen.generate(input));
+        appWindow.addHistoryEntry(input, convertedNumeral);
+
     }
 
     /**
      * Converts the entered Arabic numeric to Roman notation.
      * <p>
-     * it creates an object of class RomanNumeralGenerator that handles the number
-     * generating
+     * it creates an object of class RomanNumeralGenerator that handles the
+     * number generating
+     *
      * @param inputNumeric User's input parsed to integer.
      */
     private void convertToRoman(int inputNumeric) {
-        view.logMessageToConsole("""
+//        view.logMessageToConsole("""
+//                                 
+//                                 Number is Validated arabic
+//                                 Converting number now...""");
+        appWindow.showInfo("""
                                  
                                  Number is Validated
                                  Converting number now...""");
         RomanNumeralGenerator RnGen = new RomanNumeralGenerator();
         convertedNumeral = RnGen.generate(inputNumeric);
+        appWindow.addHistoryEntry(Integer.toString(inputNumeric), convertedNumeral);
+
     }
 
     /**
-     * Getter for the processed input.
-     * Used also as a flag in the Controller, as long as it's an empty String 
-     * the program keeps running and prompting the user again to enter a valid input
+     * Getter for the processed input. Used also as a flag in the Controller, as
+     * long as it's an empty String the program keeps running and prompting the
+     * user again to enter a valid input
+     *
      * @return the converted number in any notation as a string
      */
     public String getOutput() {
         return convertedNumeral;
     }
 
-    
 }

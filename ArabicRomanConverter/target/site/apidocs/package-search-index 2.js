@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"pl.polsl.lab.asser.moustafa.controller"},{"l":"pl.polsl.lab.asser.moustafa.model"},{"l":"pl.polsl.lab.asser.moustafa.view"}];updateSearchResults();
